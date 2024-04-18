@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { FloatingNav } from "@/components/ui/floating-navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +17,30 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+      <FloatingNav navItems={
+        [
+          {
+            name: "Home",
+            link: "/",
+          },
+          {
+            name: "Projects",
+            link: "/projects",
+          },
+          {
+            name: "About",
+            link: "/about",
+          },
+          {
+            name: "Contact",
+            link: "/contact",
+          },
+        ]
+      }>
+        </FloatingNav>
+        {children}
+      </body>
     </html>
   );
 }
